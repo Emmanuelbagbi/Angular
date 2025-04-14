@@ -1,0 +1,29 @@
+<div class="cont" [class.s--inactive]="!isInitialized" [class.s--el-active]="activeSection !== null">
+    <div class="cont__inner">
+      <div *ngFor="let section of sections" 
+           class="el" 
+           [class.s--active]="activeSection === section.id"
+           (click)="activateSection(section.id)">
+        
+        <div class="el__overflow">
+          <div class="el__inner">
+            <div class="el__bg" [style.background-image]="'url(' + section.bgImage + ')'"></div>
+            <div class="el__preview-cont">
+              <h2 class="el__heading">{{section.title}}</h2>
+            </div>
+            <div class="el__content">
+              <div class="el__text">{{section.content}}</div>
+              <div class="el__close-btn" (click)="closeSection($event)"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="el__index">
+          <div class="el__index-back">{{section.id}}</div>
+          <div class="el__index-front">
+            <div class="el__index-overlay" [attr.data-index]="section.id">{{section.id}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

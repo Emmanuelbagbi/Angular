@@ -1,0 +1,128 @@
+<div class="content-product">
+    <div class="content-button-div">
+        <div *ngFor="let tab of tabs" 
+             [class.active-content-button]="isTabActive(tab.id)"
+             [class.content-button]="!isTabActive(tab.id)"
+             (click)="setActiveTab(tab.id)">
+            {{tab.title}}
+        </div>
+    </div>
+
+    <!-- About Us Content (default) -->
+    <div class="text-content" *ngIf="activeTab === 'about'">
+        <div class="intro">
+            <span class="dot1"></span>
+            Who We Are At Famestic
+        </div>
+        <div class="info">
+            <h1 class="info-text1">With years of expertise in both farming and tech.
+                we're committed to helping farmers grow smarter
+                and achieve better yields. Together, We're shaping
+                the future of farming for a more sustainable world.
+            </h1>
+            <br class="removebreak"><br class="removebreak">
+
+            <p>Explore how integrating environmental, soil, and crop-specific data can revolutionize crop yield prediction, guiding farmers to make more informed decisions.</p><br class="removebreak">
+
+            <button class="learn-button">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Journey Content -->
+    <div class="text-content" *ngIf="activeTab === 'journey'">
+        <div class="intro">
+            <span class="dot1"></span>
+            Our Journey
+        </div>
+        <div class="info">
+            <h1 class="info-text">Our journey began with a simple idea: to bridge the gap between traditional farming and modern technology.
+            </h1>
+            <br><br>
+
+            <p>Over the years, we've developed innovative solutions that have transformed how farmers approach agriculture, making it more efficient and sustainable.</p><br>
+
+            <button class="learn-button">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Vision Content -->
+    <div class="text-content" *ngIf="activeTab === 'vision'">
+        <div class="intro">
+            <span class="dot1"></span>
+            Our Vision
+        </div>
+        <div class="info">
+            <h1 class="info-text">We envision a world where technology empowers every farmer to achieve optimal yields with minimal environmental impact.
+            </h1>
+            <br class="removebreak"><br class="removebreak">
+
+            <p>Our goal is to create a global network of smart farms that leverage data and AI to revolutionize food production.</p><br>
+
+            <button class="learn-button">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Mission Content -->
+    <div class="text-content" *ngIf="activeTab === 'mission'">
+        <div class="intro">
+            <span class="dot1"></span>
+            Our Mission
+        </div>
+        <div class="info">
+            <h1 class="info-text">To provide farmers with cutting-edge tools that simplify complex agricultural decisions.
+            </h1>
+            <br><br>
+
+            <p>We're committed to developing intuitive solutions that combine agricultural expertise with technological innovation.</p><br>
+
+            <button class="learn-button">Learn More</button>
+        </div>
+    </div>
+    
+    <!-- Blog section (appears on all tabs) -->
+    <div class="blog">
+        <div class="blog-div1"></div>
+        <div class="blog-div2">
+            <div class="blog2-icon-div">
+                <span class="num"><h1>10+</h1></span>
+            <span class="rotated-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/>
+                  </svg>
+            </span>
+            </div>
+
+            <span class="innovation">Years of Agricultural Innovation</span>
+
+           <div class="p-tag-div">
+            <p class="p-tag">With a decade of experience. We've
+                Pioneered advancements in precision
+                Agriculture. helping farmers increase
+                yields by 30% while reducing water 
+                consumption by 25%
+            </p>
+        </div>
+        </div>
+        <div class="blog-div3"></div>
+        <div class="blog-div4">
+            <div class="blog2-icon-div2">
+                <span class="num"><h1>85%</h1></span>
+            <span class="rotated-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z"/>
+                  </svg>
+            </span>
+            </div>
+
+            <span class="innovation">Customer Satisfaction Rate</span>
+
+           <div class="p-tag-div">
+            <p class="p-tag">With an 85% Customer Satisfaction
+                rate Our Users trust us to deliver
+                valuable tools and support that enable 
+                them to work smarter and grow better
+            </p>
+        </div>
+        </div>
+    </div>
+</div>

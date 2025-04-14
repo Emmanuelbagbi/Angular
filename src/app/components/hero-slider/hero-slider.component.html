@@ -1,0 +1,45 @@
+<!-- hero-slider.component.html -->
+<section id="home" class="hero">
+    <div class="hero-slider">
+      <div *ngFor="let slide of slides; let i = index" 
+           class="hero-slide" 
+           [ngClass]="{'active': i === currentSlide}" 
+           [style.backgroundImage]="'url(' + slide.image + ')'">
+        <div class="container">
+          <div class="hero-content">
+            <br class="mobile-break"><br class=""><br class="">
+            <p class="hero-subtitle">{{ slide.subtitle }}</p> 
+            <h1 class="hero-title" [innerHTML]="slide.title"></h1> <br class="mobile-break"> <br class="mobile-break">
+            <p class="hero-description">{{ slide.description }}</p> <br class="mobile-break"> <br class="mobile-break">
+            <a [href]="slide.buttonLink" class="button button-primary hero-button">{{ slide.buttonText }}
+                <span class="svg-section"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                  </svg></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="hero-controls">
+      <button class="hero-arrow hero-arrow-prev" (click)="stopSlideshow(); prevSlide(); startSlideshow();">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+  
+      <div class="hero-dots">
+        <button *ngFor="let slide of slides; let i = index" 
+                class="hero-dot" 
+                [ngClass]="{'active': i === currentSlide}" 
+                (click)="stopSlideshow(); showSlide(i); startSlideshow();"></button>
+      </div>
+  
+      <button class="hero-arrow hero-arrow-next" (click)="stopSlideshow(); nextSlide(); startSlideshow();">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+  </section>
+  

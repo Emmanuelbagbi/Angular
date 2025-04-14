@@ -7,8 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "inlineTemplate": true,
-          "inlineStyle": true
+          "style": "css"
         }
       },
       "root": "",
@@ -26,11 +25,14 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+             "src/favicon.ico",
+              "src/assets",
+            {
+              "glob": "**/*",
+              "input": "src/assets/IMAGE",
+              "output": "assets/IMAGE"
+            }
+          ],
             "styles": [
               "src/styles.css"
             ],
@@ -84,10 +86,8 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
               "src/styles.css"
@@ -97,5 +97,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "a2d67ca8-042f-46c9-85da-86ee53856774"
   }
 }

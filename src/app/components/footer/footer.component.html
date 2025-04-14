@@ -1,0 +1,26 @@
+<div class="footer-section">
+    <div class="footer-top">
+      <img src="/assets/IMAGE/Logo.png" alt="logo" class="footer-logo" /><br>
+      <h2>Join the community!</h2><br>
+      <p class="subtext">
+        Subscribe to The Forager to receive monthly plant tips, <br />
+        store updates, promotions & more
+      </p>
+    </div>
+  
+   <div class="footer-wrapper">
+    <br>
+    <div class="footer-buttons">
+        <button
+          *ngFor="let platform of platforms"
+          [ngClass]="{ active: platform === activePlatform }"
+          (click)="setActive(platform)"
+        >
+          {{ platform }}
+        </button>
+      </div><br>
+        <span class="ruler"></span><br><br>
+      <p class="footer-bottom">©2023, All Right Reserved.</p>
+   </div>
+  </div>
+  

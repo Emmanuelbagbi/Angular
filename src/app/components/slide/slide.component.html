@@ -1,0 +1,59 @@
+<section class="cloneable">
+  <div class="overlay">
+    <div class="overlay-inner">
+      <div class="overlay-count-row">
+        <div class="count-column">
+          <h2 data-slide-count="step" class="count-heading" *ngFor="let step of slides; let i = index">
+            {{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }}
+          </h2>
+        </div>
+        <div class="count-row-divider"></div>
+        <div class="count-column">
+          <h2 data-slide-count="total" class="count-heading">
+            {{ slidesTotal < 10 ? '0' + slidesTotal : slidesTotal }}
+          </h2>
+        </div>
+      </div>
+      <div class="overlay-nav-row">
+        <button aria-label="previous slide" data-slider="button-prev" class="button" (click)="goToSlide(currentIndex - 1, slideElements)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 17 12" fill="none" class="button-arrow">
+            <path d="M6.28871 12L7.53907 10.9111L3.48697 6.77778H16.5V5.22222H3.48697L7.53907 1.08889L6.28871 0L0.5 6L6.28871 12Z" fill="currentColor"></path>
+          </svg>
+          <div class="button-overlay">
+            <div class="overlay-corner"></div>
+            <div class="overlay-corner top-right"></div>
+            <div class="overlay-corner bottom-left"></div>
+            <div class="overlay-corner bottom-right"></div>
+          </div>
+        </button>
+        <button aria-label="next slide" data-slider="button-next" class="button" (click)="goToSlide(currentIndex + 1, slideElements)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 17 12" fill="none" class="button-arrow next">
+            <path d="M6.28871 12L7.53907 10.9111L3.48697 6.77778H16.5V5.22222H3.48697L7.53907 1.08889L6.28871 0L0.5 6L6.28871 12Z" fill="currentColor"></path>
+          </svg>
+          <div class="button-overlay">
+            <div class="overlay-corner"></div>
+            <div class="overlay-corner top-right"></div>
+            <div class="overlay-corner bottom-left"></div>
+            <div class="overlay-corner bottom-right"></div>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="slider-wrap">
+      <div data-slider="list" class="slider-list" #sliderList>
+        <div *ngFor="let slide of slides; let i = index" data-slider="slide" class="slider-slide" [ngClass]="{'active': i === currentIndex}">
+          <div class="slide-inner">
+            <img [src]="slide.image" loading="lazy" [alt]="slide.caption">
+            <div class="slide-caption">
+              <div class="caption-dot"></div>
+              <p class="caption">{{ slide.caption }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,55 @@
+<div class="quality-plant">
+    <div class="holder">
+        <h1 class="plant">Quation Plants & Curated Goods</h1>
+
+        <p class="small">We offer a carefully curated selection of indoor and outdoor plants, hand crafted home goods
+            than put quality ahead of quatity, and living art made right there in the shop: terrariums, landscapes,
+            arrangements, vessels, and holders.
+        </p>
+
+
+        <div class="video-container">
+          <!-- Thumbnail and Play Button -->
+          <div class="thumbnail-overlay" *ngIf="showThumbnail" (click)="playVideo()">
+            <img src="/assets/IMAGE/man-florist-working-green-house.jpg" class="video-thumbnail" alt="Video thumbnail">
+            <div class="play-overlay">
+             
+              <svg width="50" height="50" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+        
+          <!-- Video Element -->
+          <video
+            #videoElement
+            class="main-video"
+            [class.show-video]="!showThumbnail"
+            (ended)="onVideoEnd()"
+            (click)="togglePlay()"
+            preload="metadata"
+            playsinline
+            muted
+          >
+            <source *ngFor="let source of videoSources" [src]="source.src" [type]="source.type">
+            Your browser does not support the video tag.
+          </video>
+        
+          <!-- Optional pause/play overlay when video is playing -->
+          <div class="pause-overlay" *ngIf="!showThumbnail" (click)="togglePlay()">
+            <!-- ⏸ Pause Icon (SVG) -->
+            <svg *ngIf="isPlaying" width="40" height="40" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+            <!-- ▶ Play Icon (SVG) when paused -->
+            <svg *ngIf="!isPlaying" width="40" height="40" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+       
+</div>
+</div>
+
+
+
