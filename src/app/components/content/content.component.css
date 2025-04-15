@@ -93,11 +93,13 @@ a{
     color: black;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
+    font-size: 28px;
   }
   .info-text{
     color: black;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
+    font-size: 28px;
   }
 
   .learn-button{
@@ -176,7 +178,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 50%;
+    gap: 40%;
   }
 
   .blog2-icon-div2{
@@ -870,4 +872,15 @@ a{
   justify-content: center;
   gap: 40%;
 }
+}
+
+@media (max-width: 397px) {
+  .blog2-icon-div2{
+    width: 90%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40%;
+  }
 }
