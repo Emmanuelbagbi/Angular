@@ -1,4 +1,3 @@
-// MUST BE ABSOLUTELY FIRST LINE - NO WHITESPACE OR COMMENTS BEFORE
 @use "sass:math";
 
 /* Global Styles */
@@ -32,6 +31,7 @@ $closeBtnLineDelay: 0.15s;
 $fullExpandAT: $moveAT + $expandDelay + $expandAT;
 $contentFadeinAT: 0.5s;
 
+/* [Rest of your SCSS remains exactly the same...] */
 /* Mixins */
 @mixin elHover {
   .el:hover & {

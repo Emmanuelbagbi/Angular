@@ -7,7 +7,8 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "css"
+          "style": "scss",
+          "skipTests": true
         }
       },
       "root": "",
@@ -25,18 +26,27 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-             "src/favicon.ico",
+              "src/favicon.ico",
               "src/assets",
-            {
-              "glob": "**/*",
-              "input": "src/assets/IMAGE",
-              "output": "assets/IMAGE"
-            }
-          ],
-            "styles": [
-              "src/styles.css"
+              {
+                "glob": "**/*",
+                "input": "src/assets/IMAGE",
+                "output": "assets/IMAGE"
+              }
             ],
-            "scripts": []
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
+            "optimization": true,
+            "aot": true,
+            "vendorChunk": false,
+            "buildOptimizer": true
           },
           "configurations": {
             "production": {
@@ -52,12 +62,20 @@
                   "maximumError": "15kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "serviceWorker": true
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "vendorChunk": true
             }
           },
           "defaultConfiguration": "production"
@@ -75,7 +93,10 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "crop-prediction:build"
+          }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
@@ -90,15 +111,22 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
+            "karmaConfig": "karma.conf.js"
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "a2d67ca8-042f-46c9-85da-86ee53856774"
+    "analytics": "a2d67ca8-042f-46c9-85da-86ee53856774",
+    "defaultCollection": "@angular-eslint/schematics"
   }
 }
