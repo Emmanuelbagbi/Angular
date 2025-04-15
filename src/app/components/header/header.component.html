@@ -1,8 +1,8 @@
-<!-- Navbar -->
 <nav class="navbar" [class.scrolled]="isScrolled">
   <div class="container navbar-container">
     <div class="logo-img"></div>
     
+    <!-- Desktop Navigation -->
     <div class="navbar-links">
       <div class="navbar-link-container">
         <a routerLink="#home" class="navbar-link">Home</a>
@@ -11,9 +11,8 @@
       <div class="navbar-link-container">
         <button class="navbar-link dropdown-toggle" (click)="toggleDropdown('Upload-Data')">
           Upload Data
-          
         </button>
-        <div class="dropdown-menu" *ngIf="openDropdown === 'Upload Data'">
+        <div class="dropdown-menu" *ngIf="openDropdown === 'Upload-Data'">
           <a routerLink="#mission" class="dropdown-item">Our Mission</a>
           <a routerLink="#values" class="dropdown-item">Our Values</a>
           <a routerLink="#team" class="dropdown-item">Our Team</a>
@@ -21,11 +20,10 @@
       </div>
 
       <div class="navbar-link-container">
-        <button class="navbar-link dropdown-toggle" (click)="toggleDropdown('services')">
+        <button class="navbar-link dropdown-toggle" (click)="toggleDropdown('Predict')">
           Predict
-         
         </button>
-        <div class="dropdown-menu" *ngIf="openDropdown === 'services'">
+        <div class="dropdown-menu" *ngIf="openDropdown === 'Predict'">
           <a routerLink="#sunday" class="dropdown-item">Sunday Worship</a>
           <a routerLink="#bible-study" class="dropdown-item">Bible Study</a>
           <a routerLink="#prayer-groups" class="dropdown-item">Prayer Groups</a>
@@ -33,68 +31,63 @@
       </div>
 
       <div class="navbar-link-container">
-        <a routerLink="#sermons" class="navbar-link">Visualize</a>
+        <a routerLink="#visualize" class="navbar-link">Visualize</a>
       </div>
       <div class="navbar-link-container">
-        <a routerLink="#events" class="navbar-link">Results</a>
+        <a routerLink="#results" class="navbar-link">Results</a>
       </div>
     </div>
 
     <div class="button-div">
       <button class="sigin1">Sign Up</button>
-      <button class="sigup"> <span class="dot"></span> Log In</button>
+      <button class="sigup"><span class="dot"></span> Log In</button>
     </div>
     
-    <!-- Mobile Navbar -->
-    <button class="navbar-mobile-toggle" aria-label="Toggle navigation menu" (click)="toggleMobileMenu()">
-      
-      <span class="menu-icon" [class.open]="isMobileMenuOpen"></span>
+    <!-- Mobile Toggle Button -->
+    <button class="hamburger-button" [class.open]="isMobileMenuOpen" 
+            (click)="toggleMobileMenu()" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
     
-    <div class="navbar-mobile-menu" *ngIf="isMobileMenuOpen">
-      <div class="mobile-menu-item">
-        <a routerLink="#home" class="mobile-menu-link">Home</a>
-      </div>
-      
-      <div class="mobile-menu-item">
-        <button class="mobile-dropdown-toggle" (click)="toggleMobileDropdown('about')">
-          About
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="dropdown-arrow"
-          [class.rotated]="openMobileDropdown === 'about'">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="mobile-dropdown-menu" *ngIf="openMobileDropdown === 'about'">
-          <a routerLink="#mission" class="mobile-dropdown-item">Our Mission</a>
-          <a routerLink="#values" class="mobile-dropdown-item">Our Values</a>
-          <a routerLink="#team" class="mobile-dropdown-item">Our Team</a>
-        </div>
-      </div>
-
-      <div class="mobile-menu-item">
-        <button class="mobile-dropdown-toggle" (click)="toggleMobileDropdown('services')">
-          Services
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="dropdown-arrow"
-          [class.rotated]="openMobileDropdown === 'services'">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="mobile-dropdown-menu" *ngIf="openMobileDropdown === 'services'">
-          <a routerLink="#sunday" class="mobile-dropdown-item">Sunday Worship</a>
-          <a routerLink="#bible-study" class="mobile-dropdown-item">Bible Study</a>
-          <a routerLink="#prayer-groups" class="mobile-dropdown-item">Prayer Groups</a>
-        </div>
-      </div>
-
-      <div class="mobile-menu-item">
-        <a routerLink="#sermons" class="mobile-menu-link">Sermons</a>
-      </div>
-      <div class="mobile-menu-item">
-        <a routerLink="#events" class="mobile-menu-link">Events</a>
-      </div>
-      <div class="mobile-menu-item">
-        <a routerLink="#contact" class="mobile-menu-link">Contact</a>
-      </div>
-    </div>
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu-backdrop" [class.open]="isMobileMenuOpen" 
+         (click)="toggleMobileMenu()"></div>
+    <nav class="mobile-menu" [class.open]="isMobileMenuOpen">
+      <ul>
+        <li><a routerLink="#home" (click)="toggleMobileMenu()">Home</a></li>
+        <li>
+          <button class="mobile-dropdown-toggle" (click)="toggleMobileDropdown('Upload-Data')">
+            Upload Data
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="dropdown-arrow"
+            [class.rotated]="openMobileDropdown === 'Upload-Data'">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="mobile-dropdown-menu" *ngIf="openMobileDropdown === 'Upload-Data'">
+            <a routerLink="#mission" (click)="toggleMobileMenu()">Our Mission</a>
+            <a routerLink="#values" (click)="toggleMobileMenu()">Our Values</a>
+            <a routerLink="#team" (click)="toggleMobileMenu()">Our Team</a>
+          </div>
+        </li>
+        <li>
+          <button class="mobile-dropdown-toggle" (click)="toggleMobileDropdown('Predict')">
+            Predict
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" class="dropdown-arrow"
+            [class.rotated]="openMobileDropdown === 'Predict'">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="mobile-dropdown-menu" *ngIf="openMobileDropdown === 'Predict'">
+            <a routerLink="#sunday" (click)="toggleMobileMenu()">Sunday Worship</a>
+            <a routerLink="#bible-study" (click)="toggleMobileMenu()">Bible Study</a>
+            <a routerLink="#prayer-groups" (click)="toggleMobileMenu()">Prayer Groups</a>
+          </div>
+        </li>
+        <li><a routerLink="#visualize" (click)="toggleMobileMenu()">Visualize</a></li>
+        <li><a routerLink="#results" (click)="toggleMobileMenu()">Results</a></li>
+      </ul>
+    </nav>
   </div>
-</nav> 
+</nav>
