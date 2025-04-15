@@ -1,6 +1,5 @@
-/* First, the @use rules must come before anything else */
+// MUST BE ABSOLUTELY FIRST LINE - NO WHITESPACE OR COMMENTS BEFORE
 @use "sass:math";
-
 
 /* Global Styles */
 *, *:before, *:after {
@@ -14,8 +13,7 @@ body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
-
-
+/* Variables */
 $vertPad: 80px;
 $sidePad: 70px;
 $numOfEls: 5;
