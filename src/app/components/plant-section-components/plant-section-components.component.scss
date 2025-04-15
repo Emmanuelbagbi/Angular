@@ -1,3 +1,7 @@
+/* First, the @use rules must come before anything else */
+@use "sass:math";
+
+
 /* Global Styles */
 *, *:before, *:after {
   box-sizing: border-box;
@@ -10,8 +14,7 @@ body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
-/* Variables */
-@use "sass:math";
+
 
 $vertPad: 80px;
 $sidePad: 70px;
