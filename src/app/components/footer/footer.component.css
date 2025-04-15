@@ -15,6 +15,15 @@
     background-color: rgba(0, 0, 0, 0.404);
     background-blend-mode: darken;
   }
+
+  a{
+    text-decoration: none;
+  }
+
+
+
+
+
   
   .footer-top {
     margin-bottom: 30px;
@@ -82,11 +91,32 @@
     flex-direction: column;
     align-self: center;
     border-radius: 30px;
+   
   }
   .ruler{
     width: 80%;
     border-bottom: 2px solid black;
   }
+
+  .button {
+    --width: 150px;
+    --timing: 2s;
+    border: 0;
+    width: var(--width);
+    padding-block: 1em;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1em;
+    background: rgb(64, 192, 87);
+    transition: all 0.2s;
+    border-radius: 3px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  
+  
+
 
 
 
@@ -249,6 +279,28 @@
     }
   }
 
+  @media screen and (max-width: 390px) {
+    .footer-buttons{
+      display: none;
+    }
+    .button {
+      --width: 150px;
+      --timing: 2s;
+      border: 0;
+      width: var(--width);
+      padding-block: 1em;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1em;
+      background: rgb(64, 192, 87);
+      transition: all 0.2s;
+      border-radius: 3px;
+      cursor: pointer;
+      display: block;
+    }
+    
+  }
+
 
   @media screen and (max-width: 370px){
     .footer-top h2 {
@@ -257,4 +309,12 @@
       font-weight: 700;
       margin: 10px 0;
     }
+  }
+
+
+  @media screen and (max-width: 360px) {
+    .footer-buttons{
+      display: none;
+    }
+   
   }

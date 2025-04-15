@@ -16,14 +16,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/crop-prediction",
             "index": "src/index.html",
-            "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "main": "src/main.ts",
+            "polyfills": "zone.js",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
@@ -35,18 +33,17 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/app/components/plant-section-components/plant-section-components.component.scss",
+              "src/styles.css"
             ],
             "scripts": [],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles"
-              ]
-            },
             "optimization": true,
             "aot": true,
-            "vendorChunk": false,
-            "buildOptimizer": true
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -74,14 +71,17 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "vendorChunk": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "crop-prediction:build",
+            "port": 0 
+          },
           "configurations": {
             "production": {
               "buildTarget": "crop-prediction:build:production"
@@ -95,7 +95,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "crop-prediction:build"
+            "buildTarget": "crop-prediction:build"
           }
         },
         "test": {
@@ -110,15 +110,7 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
             "scripts": [],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles"
-              ]
-            },
             "karmaConfig": "karma.conf.js"
           }
         }
