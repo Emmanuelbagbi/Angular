@@ -33,7 +33,6 @@
               }
             ],
             "styles": [
-              "src/app/components/plant-section-components/plant-section-components.component.scss",
               "src/styles.css"
             ],
             "scripts": [],
@@ -66,7 +65,8 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "serviceWorker": true
+              "serviceWorker": false,
+              "buildOptimizer": true
             },
             "development": {
               "optimization": false,
@@ -80,7 +80,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "buildTarget": "crop-prediction:build",
-            "port": 0 
+            "port": 0
           },
           "configurations": {
             "production": {
